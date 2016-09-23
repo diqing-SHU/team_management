@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/schedule', 'ScheduleController@index');
+Route::get('/chat', 'HomeController@index');
+Route::get('/files', 'HomeController@index');
+Route::get('/setting', 'HomeController@index');

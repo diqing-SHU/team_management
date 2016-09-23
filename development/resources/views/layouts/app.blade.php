@@ -19,6 +19,10 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -42,7 +46,36 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    @if (Auth::guest())
+                        
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Schedule <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/schedule') }}">
+                                        My Schedule
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/schedule') }}">
+                                        Team Schedule
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/schedule') }}">
+                                        Schedule List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('/chat') }}">Chat</a></li>
+                        <li><a href="{{ url('/files') }}">Files</a></li>
+                        <li><a href="{{ url('/setting') }}">Setting</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -78,8 +111,5 @@
     </nav>
 
     @yield('content')
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>

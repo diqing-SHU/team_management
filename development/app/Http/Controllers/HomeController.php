@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        //Auth::user()->name
+        if(false){
+            return view('complete_info');
+        }else{
+            return view('home');
+        }
+        
     }
 }
